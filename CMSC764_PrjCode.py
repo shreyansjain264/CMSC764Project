@@ -125,14 +125,14 @@ while max(-1*loss_t) < (10000):
 
         # Compute and print loss.
         loss = -loss_fn(y_pred, y)
-        loss_t[t] = loss.item()
+        loss_t[t] = loss.data[0]
 
 
         if max(-1*loss_t) > (10e4) or np.isnan(loss_t[t]) == True:
             th = t
             break
 
-        print(t, loss.item())
+        print(t, loss.data[0])
 
         #Backprop
         optimizer.zero_grad()
@@ -186,12 +186,12 @@ for mp in mtpl:
 
             # Compute and print loss.
             loss = loss_fn(y_pred, y)
-            loss_t[t] = loss.item()
+            loss_t[t] = loss.data[0]
 
             if np.isnan(loss_t[t]) == True:
                 break
 
-            print(t, loss.item())
+            print(t, loss.data[0])
             #Backprop
             optimizer.zero_grad()
             loss.backward(retain_graph=True)
@@ -245,14 +245,14 @@ while max(-1*loss_t) < (10000):
 
         # Compute and print loss.
         loss = -loss_fn(y_pred, y)
-        loss_t[t] = loss.item()
+        loss_t[t] = loss.data[0]
 
 
         if max(-1*loss_t) > (50000) or np.isnan(loss_t[t]) == True:
             th = t
             break
 
-        print(t, loss.item())
+        print(t, loss.data[0])
         t = t + 1
         #Backprop
         optimizer.zero_grad()
@@ -305,12 +305,12 @@ for mp in mtpl:
 
             # Compute and print loss.
             loss = loss_fn(y_pred, y)
-            loss_t[t] = loss.item()
+            loss_t[t] = loss.data[0]
             
             if np.isnan(loss_t[t]) == True:
                 break
                 
-            print(t, loss.item())
+            print(t, loss.data[0])
             #Backprop
             optimizer.zero_grad()
             loss.backward(retain_graph=True)
@@ -364,14 +364,14 @@ while max(-1*loss_t) < (10000):
 
         # Compute and print loss.
         loss = -loss_fn(y_pred, y)
-        loss_t[t] = loss.item()
+        loss_t[t] = loss.data[0]
 
 
         if max(-1*loss_t) > (10e4) or np.isnan(loss_t[t]) == True:
             th = t
             break
 
-        print(t, loss.item())
+        print(t, loss.data[0])
         #Backprop
         optimizer.zero_grad()
         loss.backward(retain_graph=True)
@@ -424,13 +424,13 @@ for mp in mtpl:
 
             # Compute and print loss.
             loss = loss_fn(y_pred, y)
-            loss_t[t] = loss.item()
+            loss_t[t] = loss.data[0]
             
             if np.isnan(loss_t[t]) == True:
                 break
                 
             
-            print(t, loss.item())
+            print(t, loss.data[0])
             #Backprop
             optimizer.zero_grad()
             loss.backward(retain_graph=True)
